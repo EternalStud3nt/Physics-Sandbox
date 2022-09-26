@@ -5,8 +5,7 @@ using UnityEngine;
 public class PhysicsManager : MonoBehaviour
 {
     public static PhysicsManager Instance { get; private set; }
-    public static List<MagneticPole> NorthPoles { get; private set; } = new List<MagneticPole>();
-    public static List<MagneticPole> SouthPoles { get; private set; } = new List<MagneticPole>();
+    public static List<MagneticPole> MagneticPoles { get; private set; } = new List<MagneticPole>();
 
 
     private void Awake()
@@ -23,6 +22,6 @@ public class PhysicsManager : MonoBehaviour
 
     public static void RegisterMagneticPole(MagneticPole pole)
     {
-
+        MagneticPoles.Add(pole);
     }
 }
