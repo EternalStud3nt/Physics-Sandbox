@@ -5,21 +5,27 @@ using UnityEngine;
 public class MagneticPole : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidBody;
-    [SerializeField] private MagneticPole attachedPole;
+    [SerializeField] private MagneticPole ignoredPole;
 
     [field: SerializeField] public float Strength { get; private set; } = 1;
     [field: SerializeField] public PoleType Type { get; private set; }
 
     public enum PoleType { North, South }
 
-    private void Start()
+    public void SetPoleStrength(float strength)
     {
-        PhysicsManager.RegisterMagneticPole(this);    
+        Strength = strength;
     }
 
     public void ApplyForce(Vector3 force)
     {
-        rigidBody.AddForceAtPosition(force, transform.position);
+        if (force.magnitude > 300) force = force.normalized * 300;
+        rigidBody.AddForceAtPosition(force, transform.position, ForceMode.Force);
+    }
+
+    private void Start()
+    {
+        PhysicsManager.RegisterMagneticPole(this);    
     }
 
     private void FixedUpdate()
@@ -33,7 +39,6 @@ public class MagneticPole : MonoBehaviour
             Vector3 forceDirection = (deltaPos).normalized;
             if (attracted) forceDirection *= -1;
             float forceMagnitude = Strength * pole.Strength / Mathf.Pow(deltaPos.magnitude, 1.5f);
-            Debug.Log("Direction: " + forceDirection + ", Magnitude: " + forceMagnitude);
             pole.ApplyForce(forceDirection * forceMagnitude);
         }
 
