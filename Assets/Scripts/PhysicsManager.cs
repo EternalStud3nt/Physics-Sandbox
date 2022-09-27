@@ -24,4 +24,9 @@ public class PhysicsManager : MonoBehaviour
     {
         MagneticPoles.Add(pole);
     }
+
+    public static void UnRegisterMagneticPole(MagneticPole pole)
+    {
+        MagneticPoles.Remove(pole);
+    }
 }

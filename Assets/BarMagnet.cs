@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BarMagnet : MonoBehaviour
 {
-    [SerializeField] private float poleStrength = 50;
+    [SerializeField] private Rigidbody rigidBody;
 
-    private void Start()
+    private void Awake()
     {
         MagneticPole[] poles = transform.GetComponentsInChildren<MagneticPole>();
         foreach (MagneticPole pole in poles)
         {
-            pole.SetPoleStrength(poleStrength);
+            pole.MultiplyPoleStrength(rigidBody.mass);
         }
     }
 }
