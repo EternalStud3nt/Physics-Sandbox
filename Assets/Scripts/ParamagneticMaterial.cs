@@ -5,21 +5,14 @@ using UnityEngine;
 public class ParamagneticMaterial : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidBody;
-    [SerializeField] private FieldDetector fieldDetector;
-    [SerializeField] private float strength;
-
-    private void ApplyForces()
-    {
-        foreach (MagneticPole pole in PhysicsManager.MagneticPoles)
-        {
-            Vector3 poleForce = pole.CalculateFieldAtPoint(transform.position) * strength;
-            pole.ApplyForce(poleForce);
-            rigidBody.AddForce(-1 * poleForce);
-        }
-    }
+    [SerializeField] private float poleOrbitRadius;
+    [SerializeField] private MagneticPole southPole;
+    [SerializeField] private MagneticPole northPole;
 
     private void FixedUpdate()
     {
-        ApplyForces();
+        Vector3 fieldDirection = FieldDetector.GetTotalField(transform.position, new List<MagneticPole> { southPole, northPole }).normalized;
+        southPole.transform.position = transform.position + fieldDirection * poleOrbitRadius;
+        northPole.transform.position =  transform.position + -1 * poleOrbitRadius * fieldDirection;
     }
 }

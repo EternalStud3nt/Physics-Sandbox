@@ -54,10 +54,10 @@ public class MagneticPole : MonoBehaviour
         foreach (MagneticPole pole in PhysicsManager.MagneticPoles)
         {
             if (pole == this || ignoredPoles.Contains(pole)) continue;
-            bool attracted = pole.Type != Type;
+            //bool attracted = pole.Type != Type;
             Vector3 deltaPos = pole.transform.position - transform.position;
             Vector3 forceDirection = (deltaPos).normalized;
-            if (attracted) forceDirection *= -1;
+            //if (attracted) forceDirection *= -1;
             float forceMagnitude = Strength * pole.Strength / Mathf.Pow(deltaPos.magnitude, 2); // r = sqrt(8/strenght^2)
             print(forceMagnitude);
             pole.ApplyForce(forceDirection * forceMagnitude);

@@ -6,7 +6,6 @@ public class PhysicsManager : MonoBehaviour
 {
     public static PhysicsManager Instance { get; private set; }
     public static List<MagneticPole> MagneticPoles { get; private set; } = new List<MagneticPole>();
-    public static List<FieldDetector> FieldDetectors { get; private set; } = new List<FieldDetector>();
 
     private void Awake()
     {
@@ -28,15 +27,5 @@ public class PhysicsManager : MonoBehaviour
     public static void UnRegisterMagneticPole(MagneticPole pole)
     {
         MagneticPoles.Remove(pole);
-    }
-
-    public static void RegisterFieldDetector(FieldDetector fieldDetector)
-    {
-        FieldDetectors.Add(fieldDetector);
-    }
-
-    public static void UnregisterFieldDetector(FieldDetector fieldDetector)
-    {
-        FieldDetectors.Remove(fieldDetector);
     }
 }

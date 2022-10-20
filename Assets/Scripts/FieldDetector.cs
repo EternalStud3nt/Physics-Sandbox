@@ -2,18 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldDetector : MonoBehaviour
+public static class FieldDetector 
 {
-    public Vector3 Field { get; private set; }
-    private void FixedUpdate()
+    public static Vector3 GetTotalField(Vector3 point)
     {
-        Vector3 fieldSum = Vector3.zero;
-        // Calculate the field each pole applies to the detector
+        Vector3 totalField = new();
+        int totalPoles = PhysicsManager.MagneticPoles.Count;
         foreach (MagneticPole pole in PhysicsManager.MagneticPoles)
         {
-            Vector3 appliedField = pole.CalculateFieldAtPoint(transform.position);
-            fieldSum += appliedField;
+            totalField += pole.CalculateFieldAtPoint(point);
         }
-        Field = fieldSum;
+        return totalField;
+    }
+
+    public static Vector3 GetTotalField(Vector3 point, List<MagneticPole> ignoredPoles)
+    {
+        Vector3 totalField = new();
+        int totalPoles = PhysicsManager.MagneticPoles.Count;
+        foreach (MagneticPole pole in PhysicsManager.MagneticPoles)
+        {
+            if (ignoredPoles.Contains(pole)) continue;
+            totalField += pole.CalculateFieldAtPoint(point);
+        }
+        return totalField;
     }
 }
