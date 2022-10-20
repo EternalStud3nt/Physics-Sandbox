@@ -33,9 +33,9 @@ public class MagneticPole : MonoBehaviour
         Strength *= multiplier;
     }
 
-    public void SetStrength(float strength)
+    public void SetAbsoluteStrength(float strength)
     {
-        Strength = strength;
+        Strength = strength * (Strength/Mathf.Abs(Strength));
     }
 
     public void IgnorePole(MagneticPole pole)
@@ -59,7 +59,6 @@ public class MagneticPole : MonoBehaviour
             Vector3 forceDirection = (deltaPos).normalized;
             //if (attracted) forceDirection *= -1;
             float forceMagnitude = Strength * pole.Strength / Mathf.Pow(deltaPos.magnitude, 2); // r = sqrt(8/strenght^2)
-            print(forceMagnitude);
             pole.ApplyForce(forceDirection * forceMagnitude);
             ApplyForce(-1 * forceMagnitude * forceDirection);
         }

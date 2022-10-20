@@ -11,7 +11,7 @@ public class BarMagnet : MonoBehaviour
         MagneticPole[] poles = transform.GetComponentsInChildren<MagneticPole>();
         foreach (MagneticPole pole in poles)
         {
-            //pole.SetStrength(poleStrength);
+            pole.SetAbsoluteStrength(poleStrength);
         }
     }
 }
