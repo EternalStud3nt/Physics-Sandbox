@@ -8,7 +8,7 @@ namespace ObjectManipulation
     public static class SelectionManager
     {
         public static Transform SelectedTransform { get; private set; }
-        public static Vector3 StartingPosition { get; private set; }
+        public static Vector3 Position { get { return SelectedTransform.position; } }
         public static Camera MainCamera
         {
             get
@@ -48,8 +48,18 @@ namespace ObjectManipulation
         {
             Debug.Log(gameObject.name + " has been clicked on");
             SelectedTransform = gameObject.transform;
-            StartingPosition = SelectedTransform.position;
             UIManager.Instance.DisplayGizmos(gameObject.transform);
+        }
+
+        public static Vector3 GetPointerPos()
+        {       
+            Vector3 mouseScreenPos = new Vector3(
+            Input.mousePosition.x,
+            Input.mousePosition.y,
+            MainCamera.WorldToScreenPoint(SelectedTransform.position).z
+            );
+            Vector3 newPos = MainCamera.ScreenToWorldPoint(mouseScreenPos);
+            return newPos;
         }
 
     }

@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class TransformManipulator : MonoBehaviour
 {
-    public static void MoveSelectedObjectXZ()
+    public static void MoveSelectedObjectXZ(Vector3 startingPos, Vector3 offset)
     {
-        Vector3 startingPos = SelectionManager.StartingPosition;
-        Vector3 mouseScreenPos = new(
-            Input.mousePosition.x,
-            Input.mousePosition.y,
-            SelectionManager.MainCamera.WorldToScreenPoint(SelectionManager.SelectedTransform.position).z
-            );
-        Vector3 newPos = SelectionManager.MainCamera.ScreenToWorldPoint(mouseScreenPos);
-        SelectionManager.SelectedTransform.position = new(newPos.x, startingPos.y, newPos.z);
+        offset.y = 0;
+        Vector3 newPos = SelectionManager.GetPointerPos();
+        SelectionManager.SelectedTransform.position = new Vector3(newPos.x, startingPos.y, newPos.z) + offset;
+    }
+
+    public static void MoveSelectedObjectY(Vector3 startingPos, Vector3 offset)
+    {
+        offset.x = 0; offset.z = 0;
+        Vector3 newPos = SelectionManager.GetPointerPos();
+        SelectionManager.SelectedTransform.position = new Vector3(startingPos.x, newPos.y, startingPos.z) + offset;
     }
 
     private void Update()
