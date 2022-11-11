@@ -42,6 +42,12 @@ public static class SelectionManager
     }
 
 
+    public static void ClearSelection()
+    {
+        SelectedTransform = null;
+        TransformHandle.gameObject.SetActive(false);
+    }
+
     public static void OnObjectClicked(GameObject gameObject)
     {
         Debug.Log(gameObject.name + " has been clicked on");
