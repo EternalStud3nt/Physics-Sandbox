@@ -4,15 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BarMagnet : MonoBehaviour, ISelectable
+public class BarMagnet : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private float poleStrength;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        this.GetComponent<ISelectable>().OnClick(gameObject);
-    }
+    
 
     private void Awake()
     {

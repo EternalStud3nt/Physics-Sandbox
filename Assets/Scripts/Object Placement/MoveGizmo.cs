@@ -16,8 +16,8 @@ public class MoveGizmo : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        startingPos = SelectionManager.Position;
-        startingOffset = -1 * (SelectionManager.GetPointerPos() - transform.position);
+        startingPos = ObjectManipulation.SelectionManager.Position;
+        startingOffset = -1 * (ObjectManipulation.SelectionManager.GetPointerPos() - transform.position);
         movingObject = true;
     }
 
