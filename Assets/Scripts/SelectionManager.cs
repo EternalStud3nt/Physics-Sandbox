@@ -1,4 +1,5 @@
 using RuntimeHandle;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,6 +54,7 @@ public static class SelectionManager
         Debug.Log(gameObject.name + " has been clicked on");
         SelectedTransform = gameObject.transform;
         EnableMoveHandles();
+        ShowInfoCard();
     }
 
     public static void EnableMoveHandles()
@@ -60,4 +62,11 @@ public static class SelectionManager
         if (!TransformHandle.gameObject.activeInHierarchy) TransformHandle.gameObject.SetActive(true);
         TransformHandle.target = SelectedTransform;
     }
+
+    private static void ShowInfoCard()
+    {
+        ReferenceManager.Instance.UI_Overlay.OpenSelectionInfoCard(SelectedTransform.GetComponent<Selectable>());
+    }
+
+    
 }

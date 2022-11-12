@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BarMagnet : MonoBehaviour
+public class BarMagnet : Selectable_Ferromagnetic
 {
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private float poleStrength;
 
-    
+    public override float MagneticField { get => poleStrength; set => poleStrength = value; }
+
 
     private void Awake()
     {

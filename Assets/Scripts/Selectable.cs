@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Selectable : MonoBehaviour, IPointerDownHandler
+public abstract class Selectable : MonoBehaviour, IPointerDownHandler
 {
+    public abstract MaterialType Type { get; }
+
+    public enum MaterialType { Neutral, Ferromagnetic, Paramagnetic }
+
+
     public void OnPointerDown(PointerEventData eventData)
     {
         OnClick(gameObject);
