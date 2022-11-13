@@ -11,6 +11,15 @@ public class BarMagnet : Selectable_Ferromagnetic
 
     public override float MagneticField { get => poleStrength; set => poleStrength = value; }
 
+    public override void OnDeselection()
+    {
+        rigidBody.isKinematic = false;
+    }
+
+    public override void OnSelection()
+    {
+        rigidBody.isKinematic = true;
+    }
 
     private void Awake()
     {

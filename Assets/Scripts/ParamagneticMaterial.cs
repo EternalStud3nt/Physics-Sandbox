@@ -9,6 +9,7 @@ public class ParamagneticMaterial : MonoBehaviour
     [SerializeField] private MagneticPole southPole;
     [SerializeField] private MagneticPole northPole;
 
+
     private void FixedUpdate()
     {
         Vector3 fieldDirection = FieldDetector.GetTotalField(transform.position, new List<MagneticPole> { southPole, northPole }).normalized;

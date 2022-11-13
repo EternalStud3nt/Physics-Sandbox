@@ -29,21 +29,21 @@ public class UI_SelectionInfoCard : MonoBehaviour
             case Selectable.MaterialType.Ferromagnetic:
                 _ferromagneticMenuUI.gameObject.SetActive(true);
                 _ferromagneticMenuUI.Initialize(_selectedObject.gameObject.GetComponent<Selectable_Ferromagnetic>());
-                _paramagneticMenuUI.gameObject.SetActive(false);
-                _neutralMenuUI.gameObject.SetActive(false);
+            //todo: Delete:     _paramagneticMenuUI.gameObject.SetActive(false);
+            //todo: Delete:     _neutralMenuUI.gameObject.SetActive(false);
                 break;
 
-            case Selectable.MaterialType.Paramagnetic:
-                _paramagneticMenuUI.gameObject.SetActive(true);
-                _ferromagneticMenuUI.gameObject.SetActive(false);
-                _neutralMenuUI.gameObject.SetActive(false);
-                break;
-
-            case Selectable.MaterialType.Neutral:
-                _neutralMenuUI.gameObject.SetActive(true);
-                _paramagneticMenuUI.gameObject.SetActive(false);
-                _ferromagneticMenuUI.gameObject.SetActive(false);
-                break;
+            //todo: Delete: case Selectable.MaterialType.Paramagnetic:
+            //todo: Delete:     _paramagneticMenuUI.gameObject.SetActive(true);
+            //todo: Delete:     _ferromagneticMenuUI.gameObject.SetActive(false);
+            //todo: Delete:     _neutralMenuUI.gameObject.SetActive(false);
+            //todo: Delete:     break;
+            //todo: Delete: 
+            //todo: Delete: case Selectable.MaterialType.Neutral:
+            //todo: Delete:     _neutralMenuUI.gameObject.SetActive(true);
+            //todo: Delete:     _paramagneticMenuUI.gameObject.SetActive(false);
+            //todo: Delete:     _ferromagneticMenuUI.gameObject.SetActive(false);
+            //todo: Delete:     break;
         }
     }
 }

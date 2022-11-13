@@ -10,6 +10,7 @@ public static class SelectionManager
     private static RuntimeTransformHandle _transformHandle;
 
     public static Transform SelectedTransform { get; private set; }
+    public static Selectable SelectedSelectable { get; private set; }
     public static Vector3 Position { get { return SelectedTransform.position; } }
     public static Camera MainCamera
     {
@@ -45,27 +46,37 @@ public static class SelectionManager
 
     public static void ClearSelection()
     {
-        SelectedTransform = null;
-        TransformHandle.gameObject.SetActive(false);
+        if (SelectedSelectable != null) 
+        {
+            SelectedSelectable.OnDeselection();
+            SelectedTransform = null;
+            ReferenceManager.Instance.UI_Overlay.CloseSelectionInfoCard();
+            ReferenceManager.Instance.UI_Overlay.EnableInfoButton(false);
+            TransformHandle.gameObject.SetActive(false);
+
+        }
+        
     }
 
-    public static void OnObjectClicked(GameObject gameObject)
+    public static void OnObjectClicked(Selectable selectable)
     {
-        Debug.Log(gameObject.name + " has been clicked on");
-        SelectedTransform = gameObject.transform;
+        Debug.Log(selectable.name + " has been clicked on");
+        SelectedTransform = selectable.transform;
+        SelectedSelectable = selectable;
+        SelectedSelectable.OnSelection();
         EnableMoveHandles();
-        ShowInfoCard();
+        ShowInfoButton();
     }
 
     public static void EnableMoveHandles()
     {
-        if (!TransformHandle.gameObject.activeInHierarchy) TransformHandle.gameObject.SetActive(true);
+        TransformHandle.gameObject.SetActive(true);
         TransformHandle.target = SelectedTransform;
     }
 
-    private static void ShowInfoCard()
+    private static void ShowInfoButton()
     {
-        ReferenceManager.Instance.UI_Overlay.OpenSelectionInfoCard(SelectedTransform.GetComponent<Selectable>());
+        ReferenceManager.Instance.UI_Overlay.EnableInfoButton(true);
     }
 
     

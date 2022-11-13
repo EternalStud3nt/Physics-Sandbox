@@ -9,6 +9,33 @@ public class UI_Overlay : MonoBehaviour
     [SerializeField] private FreeFlyCamera _freeFlyCamera;
     [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private UI_SelectionInfoCard _selectionInfoCard;
+    [SerializeField] private Button _infoButton;
+    [SerializeField] private Button _deleteButton;
+
+    private ReferenceManager _referenceManager;
+
+    public void EnableDeleteButton(bool enable)
+    {
+        if (enable) _deleteButton.gameObject.SetActive(true);
+        else _deleteButton.gameObject.SetActive(false);
+    }
+
+    public void DeleteSelectedGameObject()
+    {
+        Destroy(SelectionManager.SelectedTransform.gameObject);
+    }
+
+    public void ToggleTransformMode()
+    {
+        if (_referenceManager.TransformHandle.type == RuntimeHandle.HandleType.POSITION)
+        {
+            _referenceManager.TransformHandle.type = RuntimeHandle.HandleType.ROTATION;
+        }
+        else if (_referenceManager.TransformHandle.type == RuntimeHandle.HandleType.ROTATION)
+        {
+            _referenceManager.TransformHandle.type = RuntimeHandle.HandleType.POSITION;
+        }
+    }
 
     public void EnterCameraMode()
     {
@@ -17,8 +44,30 @@ public class UI_Overlay : MonoBehaviour
         _selectionInfoCard.Close();
     }
 
-    public void OpenSelectionInfoCard(Selectable selectable)
+    public void OpenSelectionInfoCard()
     {
-        _selectionInfoCard.Open(selectable);
+        _selectionInfoCard.Open(SelectionManager.SelectedSelectable);
+    }
+
+    public void CloseSelectionInfoCard()
+    {
+        _selectionInfoCard.Close();
+    }
+
+    public void EnableInfoButton(bool enable)
+    {
+        if (enable)
+        {
+            _infoButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            _infoButton.gameObject.SetActive(false);
+        }
+    }
+
+    private void Start()
+    {
+        _referenceManager = ReferenceManager.Instance;
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2310272950800316765}
-  - component: {fileID: 8032681289159983780}
+  - component: {fileID: 6932668312280100837}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -25,15 +25,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637062503812799868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8490582695372956024}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &8032681289159983780
-MeshCollider:
+--- !u!65 &6932668312280100837
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -42,10 +42,9 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: c668c35a5512c6246abf80bc910945da, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7333542282951960606
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4110292392104140467}
-  - component: {fileID: 332878066949035909}
+  - component: {fileID: 5844804570879321465}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -71,27 +70,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7333542282951960606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: -0}
+  m_LocalPosition: {x: 0, y: -2, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8490582695372956024}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &332878066949035909
-MeshCollider:
+--- !u!65 &5844804570879321465
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7333542282951960606}
-  m_Material: {fileID: 13400000, guid: c668c35a5512c6246abf80bc910945da, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8490582694911491158
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +102,6 @@ GameObject:
   - component: {fileID: 8490582694911491155}
   - component: {fileID: 8490582694911491154}
   - component: {fileID: 8490582694911491156}
-  - component: {fileID: 3160269772776890264}
   m_Layer: 0
   m_Name: North
   m_TagString: Untagged
@@ -194,20 +191,6 @@ MonoBehaviour:
   - {fileID: 8490582695297841943}
   <Strength>k__BackingField: -20
   <Type>k__BackingField: 0
---- !u!136 &3160269772776890264
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8490582694911491158}
-  m_Material: {fileID: 13400000, guid: c668c35a5512c6246abf80bc910945da, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 1.9999998
-  m_Direction: 1
-  m_Center: {x: 0.00000005960464, y: 0.00000011920929, z: -0.00000005960463}
 --- !u!1 &8490582695297841961
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +203,6 @@ GameObject:
   - component: {fileID: 8490582695297841938}
   - component: {fileID: 8490582695297841941}
   - component: {fileID: 8490582695297841943}
-  - component: {fileID: 913784073016442316}
   m_Layer: 0
   m_Name: South
   m_TagString: Untagged
@@ -310,20 +292,6 @@ MonoBehaviour:
   - {fileID: 8490582694911491156}
   <Strength>k__BackingField: 20
   <Type>k__BackingField: 1
---- !u!136 &913784073016442316
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8490582695297841961}
-  m_Material: {fileID: 13400000, guid: c668c35a5512c6246abf80bc910945da, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 1.9999998
-  m_Direction: 1
-  m_Center: {x: 0.00000005960464, y: -0.00000011920929, z: -0.000000029802308}
 --- !u!1 &8490582695372956026
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +304,7 @@ GameObject:
   - component: {fileID: 8490582695372956027}
   - component: {fileID: 1645740762303789293}
   - component: {fileID: 8073388611663586599}
+  - component: {fileID: 7800992725142817498}
   m_Layer: 0
   m_Name: 'Bar Magnet '
   m_TagString: Untagged
@@ -372,7 +341,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 5
   m_Drag: 5
-  m_AngularDrag: 0
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -404,4 +373,18 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 4.08589, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &7800992725142817498
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490582695372956026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 4
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

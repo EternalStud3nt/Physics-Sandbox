@@ -12,11 +12,23 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        OnClick(gameObject);
+        OnClick(gameObject.GetComponent<Selectable>());
     }
 
-    public virtual void OnClick(GameObject gameObject)
+    public virtual void OnClick(Selectable gameObject)
     {
         SelectionManager.OnObjectClicked(gameObject);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SelectionManager.ClearSelection();
+        }
+    }
+
+    public abstract void OnSelection();
+
+    public abstract void OnDeselection(); 
 }

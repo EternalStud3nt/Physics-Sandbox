@@ -153,6 +153,15 @@ public class FreeFlyCamera : MonoBehaviour
             return;
 
         SetCursorState();
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("hhhhhhhhhhh");
+            EnterFlyMode();
+        }
+        else if(Input.GetMouseButtonUp(1))
+        {
+            _wantedMode = CursorLockMode.None;
+        }
 
         if (Cursor.visible)
             return;
@@ -219,5 +228,7 @@ public class FreeFlyCamera : MonoBehaviour
             transform.position = _initPosition;
             transform.eulerAngles = _initRotation;
         }
+
+        
     }
 }
