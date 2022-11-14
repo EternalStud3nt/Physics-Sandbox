@@ -17,13 +17,17 @@ public class UI_FerromagneticMenu : MonoBehaviour
 
     public void IncreaseField()
     {
-        _selectable.MagneticField += 1;
+        _selectable.MagneticField += 0.1f;
         _magneticFieldIndicator.text = _selectable.MagneticField.ToString();
     }
 
     public void DecreaseField()
     {
-        _selectable.MagneticField -= 1;
-        _magneticFieldIndicator.text = _selectable.MagneticField.ToString();
+        float newValue = _selectable.MagneticField - 0.1f;
+        if (newValue > 0)
+        {
+            _selectable.MagneticField -= 1;
+            _magneticFieldIndicator.text = _selectable.MagneticField.ToString();
+        }
     }
 }

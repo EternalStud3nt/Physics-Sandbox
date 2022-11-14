@@ -3265,7 +3265,8 @@ MonoBehaviour:
         m_MethodName: CreateObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 7523915007426854802, guid: 700a32b72ee8e22419d69f97ff5c16ce,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4432,7 +4433,7 @@ PrefabInstance:
     - target: {fileID: 8490582695372956024, guid: 2ddd3dcee7bc0774d8ae2cfa4d725396,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.219
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: 8490582695372956024, guid: 2ddd3dcee7bc0774d8ae2cfa4d725396,
         type: 3}
@@ -4442,7 +4443,7 @@ PrefabInstance:
     - target: {fileID: 8490582695372956024, guid: 2ddd3dcee7bc0774d8ae2cfa4d725396,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.67
       objectReference: {fileID: 0}
     - target: {fileID: 8490582695372956024, guid: 2ddd3dcee7bc0774d8ae2cfa4d725396,
         type: 3}
@@ -4506,17 +4507,17 @@ PrefabInstance:
     - target: {fileID: 5312202074592904261, guid: b1a75ee1982a62c48ac1a8a7733f1534,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1682367
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 5312202074592904261, guid: b1a75ee1982a62c48ac1a8a7733f1534,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.99
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 5312202074592904261, guid: b1a75ee1982a62c48ac1a8a7733f1534,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3705409
+      value: 1.82
       objectReference: {fileID: 0}
     - target: {fileID: 5312202074592904261, guid: b1a75ee1982a62c48ac1a8a7733f1534,
         type: 3}
