@@ -8,6 +8,7 @@ public static class SelectionManager
 {
     private static Camera _mainCamera;
     private static RuntimeTransformHandle _transformHandle;
+    private static ReferenceManager _referenceManager;
 
     public static Transform SelectedTransform { get; private set; }
     public static Selectable SelectedSelectable { get; private set; }
@@ -42,30 +43,44 @@ public static class SelectionManager
             }
         }
     }
+    public static ReferenceManager ReferenceManager
+    {
+        get
+        {
+            if (_referenceManager != null)
+                return _referenceManager;
+            else
+            {
+                _referenceManager = ReferenceManager.Instance;
+                return _referenceManager;
+            }
+        }
+    }
 
 
     public static void ClearSelection()
     {
-        if (SelectedSelectable != null) 
-        {
-            SelectedSelectable.OnDeselection();
-            SelectedTransform = null;
-            ReferenceManager.Instance.UI_Overlay.CloseSelectionInfoCard();
-            ReferenceManager.Instance.UI_Overlay.EnableInfoButton(false);
-            TransformHandle.gameObject.SetActive(false);
-
-        }
-        
+        SelectedSelectable.OnDeselection();
+        SelectedTransform = null;
+        ReferenceManager.UI_Overlay.CloseSelectionInfoCard();
+        ReferenceManager.UI_Overlay.EnableInfoButton(false);
+        TransformHandle.target = MainCamera.transform;
+        ReferenceManager.UI_Overlay.EnableDeleteButton(false);
     }
 
     public static void OnObjectClicked(Selectable selectable)
     {
         Debug.Log(selectable.name + " has been clicked on");
+        if (SelectedSelectable != null)
+        {
+            ClearSelection();
+        }
         SelectedTransform = selectable.transform;
         SelectedSelectable = selectable;
         SelectedSelectable.OnSelection();
         EnableMoveHandles();
         ShowInfoButton();
+        ReferenceManager.UI_Overlay.EnableDeleteButton(true);
     }
 
     public static void EnableMoveHandles()
@@ -76,8 +91,8 @@ public static class SelectionManager
 
     private static void ShowInfoButton()
     {
-        ReferenceManager.Instance.UI_Overlay.EnableInfoButton(true);
+        ReferenceManager.UI_Overlay.EnableInfoButton(true);
     }
 
-    
+
 }

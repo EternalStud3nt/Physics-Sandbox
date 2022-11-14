@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 8490582695372956027}
-  poleStrength: 20
+  _poleStrength: 15
 --- !u!65 &8073388611663586599
 BoxCollider:
   m_ObjectHideFlags: 0

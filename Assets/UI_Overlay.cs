@@ -22,7 +22,9 @@ public class UI_Overlay : MonoBehaviour
 
     public void DeleteSelectedGameObject()
     {
-        Destroy(SelectionManager.SelectedTransform.gameObject);
+        GameObject gameObj = SelectionManager.SelectedTransform.gameObject;
+        SelectionManager.ClearSelection();
+        Destroy(gameObj);
     }
 
     public void ToggleTransformMode()

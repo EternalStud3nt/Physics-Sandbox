@@ -7,9 +7,23 @@ using UnityEngine.EventSystems;
 public class BarMagnet : Selectable_Ferromagnetic
 {
     [SerializeField] private Rigidbody rigidBody;
-    [SerializeField] private float poleStrength;
+    [SerializeField] private float _poleStrength;
 
-    public override float MagneticField { get => poleStrength; set => poleStrength = value; }
+    public float PoleStrength
+    {
+        get => _poleStrength;
+        private set
+        {
+            _poleStrength = value;
+            MagneticPole[] poles = transform.GetComponentsInChildren<MagneticPole>();
+            foreach (MagneticPole pole in poles)
+            {
+                pole.SetAbsoluteStrength(_poleStrength);
+            }
+        } 
+    }
+
+    public override float MagneticField { get => PoleStrength / 15f; set => PoleStrength = value * 15; }
 
     public override void OnDeselection()
     {
@@ -23,10 +37,6 @@ public class BarMagnet : Selectable_Ferromagnetic
 
     private void Awake()
     {
-        MagneticPole[] poles = transform.GetComponentsInChildren<MagneticPole>();
-        foreach (MagneticPole pole in poles)
-        {
-            pole.SetAbsoluteStrength(poleStrength);
-        }
+        PoleStrength = _poleStrength;
     }
 }
