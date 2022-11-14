@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 860491160026920695}
   - component: {fileID: 4247831969014005305}
   - component: {fileID: 361664463126494211}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Paramagnetic Material
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 301768995410354776}
   - component: {fileID: 8805269679428677360}
   - component: {fileID: 919525025042157318}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 1812380481168715710}
   - component: {fileID: 7591501162772981257}
   - component: {fileID: 5843780712915716765}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}

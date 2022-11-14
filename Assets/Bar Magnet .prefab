@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2310272950800316765}
   - component: {fileID: 6932668312280100837}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4110292392104140467}
   - component: {fileID: 5844804570879321465}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8490582694911491155}
   - component: {fileID: 8490582694911491154}
   - component: {fileID: 8490582694911491156}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 8490582695297841938}
   - component: {fileID: 8490582695297841941}
   - component: {fileID: 8490582695297841943}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 1645740762303789293}
   - component: {fileID: 8073388611663586599}
   - component: {fileID: 7800992725142817498}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 'Bar Magnet '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
