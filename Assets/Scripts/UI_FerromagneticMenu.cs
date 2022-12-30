@@ -30,4 +30,14 @@ public class UI_FerromagneticMenu : MonoBehaviour
             _magneticFieldIndicator.text = _selectable.MagneticFieldAtOneMeter.ToString();
         }
     }
+
+    public void ToggleFieldVisualization()
+    {
+        _selectable.ToggleFieldVisualization();
+    }
+
+    public void UpdateFieldVisualization()
+    {
+        _selectable.UpdateFieldVisualization();
+    }
 }

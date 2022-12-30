@@ -25,7 +25,7 @@ public class MagneticPole : MonoBehaviour
     public Vector3 CalculateFieldAtPoint(Vector3 point)
     {
         Vector3 deltaPos = point - transform.position;
-        return deltaPos.normalized * (Strength  / Mathf.Pow(deltaPos.magnitude, 2));
+        return deltaPos.normalized * (Strength / Mathf.Pow(deltaPos.magnitude, 2));
     }
 
     public void MultiplyPoleStrength(float multiplier)
@@ -35,7 +35,7 @@ public class MagneticPole : MonoBehaviour
 
     public void SetAbsoluteStrength(float strength)
     {
-        Strength = strength * (Strength/Mathf.Abs(Strength));
+        Strength = strength * (Strength / Mathf.Abs(Strength));
     }
 
     public void IgnorePole(MagneticPole pole)
@@ -64,10 +64,9 @@ public class MagneticPole : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         PhysicsManager.RegisterMagneticPole(this);
-        //todo: This should update if new poles are added or deleted
         foreach (MagneticPole pole in PhysicsManager.MagneticPoles)
         {
             if (!pole.IsIgnoringPole(this))

@@ -2,68 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GK;
+using System;
 
 public class FieldVisualizer : MonoBehaviour
 {
+    [SerializeField] FieldLine fieldLinePrefab;
     [SerializeField] MeshFilter meshFilter;
-    [SerializeField] List<MagneticPole> poles;
+    [SerializeField] MagneticPole startingPole;
 
-    public List<Vector3> CalculateFieldPoints(List<MagneticPole> poles, Vector3 origin)
+    public bool Enabled { get; private set; }
+
+    public void VisualizeFieldLines(MagneticPole startingPole)
     {
+        List<Vector3> points = new List<Vector3>();
+        Vector3 origin = startingPole.transform.position;
 
-        List<Vector3> fieldPoints = new List<Vector3>();
-        for (int phi = 0; phi <= 360; phi += 5)
+        //for (float r = 0; r <= 0.3; r += 0.1f)
         {
-            for (int thita = 0; thita <= 180; thita += 5)
+            float r = 0.3f;
+            for (float thita = 0; thita <= 360; thita += 36)
             {
-                float z = Mathf.Cos(thita);
-                float x = Mathf.Sin(thita) * Mathf.Cos(phi);
-                float y = Mathf.Sin(thita) * Mathf.Sin(phi);
-                Vector3 direction = new Vector3(x, y, z);
+                const float y = 0.4f;
+                float x = Mathf.Cos(thita * Mathf.Deg2Rad);
+                float z = Mathf.Sin(thita * Mathf.Deg2Rad);
+                Vector3 direction = r * (transform.right * x + transform.forward * z) + transform.up* y;
                 Vector3 detectionPoint = origin + direction;
-                fieldPoints.Add(detectionPoint);
+                points.Add(detectionPoint);
+                FieldLine fieldLine = Instantiate(fieldLinePrefab, transform);
+                fieldLine.transform.position = detectionPoint;
+                fieldLine.Initialize(startingPole);
             }
         }
+        Enabled = true;
+    }
 
-        for (int index = 0; index < fieldPoints.Count; index++)
-        {
-            Vector3 fieldPoint = fieldPoints[index];
-            float chosenScalar = 1;
-            Vector3 closestField  = Vector3.one * 1000;
-            for (float scalar = 0; scalar <= 5; scalar += 0.05f)
-            {
-                Vector3 checkPoint = origin + (fieldPoint - origin) * scalar;
-                Vector3 totalField = new Vector3();
-                foreach (MagneticPole pole in poles)
-                {
-                    totalField += pole.CalculateFieldAtPoint(checkPoint);
-                }
-                if (Mathf.Abs(totalField.magnitude - 1) <= Mathf.Abs(closestField.magnitude - 1))
-                {
-                    closestField = totalField;
-                    chosenScalar = scalar;
-                }
-            }
-            fieldPoints[index] = (fieldPoint - origin) * chosenScalar;
-            Debug.Log(chosenScalar);
-        }
-        return fieldPoints;
+    public void UpdateFieldLines(MagneticPole startingPole)
+    {
+        Reset();
+        VisualizeFieldLines(startingPole);
     }
 
     private void Start()
     {
-        List<Vector3> verts = new List<Vector3>();
-        List<int> triangles = new List<int>();
-        List<Vector3> normals = new List<Vector3>();
+        VisualizeFieldLines(startingPole);
+    }
 
-        List<Vector3> points = CalculateFieldPoints(poles, transform.position);
-        var calc = new ConvexHullCalculator();
-        calc.GenerateHull(points, true, ref verts, ref triangles, ref normals);
-
-        Mesh mesh = new Mesh();
-        mesh.SetVertices(verts);
-        mesh.SetTriangles(triangles, 0);
-        mesh.SetNormals(normals);
-        meshFilter.mesh = mesh;
+    internal void Reset()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+        Enabled = false;
     }
 }

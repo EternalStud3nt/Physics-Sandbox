@@ -39,14 +39,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fill: 0.02
-    - _Frenel_Effect: 5
+    - _Alpha: 0.838
+    - _Fill: 0
+    - _Frenel_Effect: 0
     - _Offset: 0.6
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scroll_Speed: 0
     m_Colors:
-    - _Emission: {r: 5.992157, g: 0, b: 0.7145208, a: 1}
+    - _Color: {r: 0, g: 0.5101505, b: 1.5157163, a: 1}
+    - _Emission: {r: 0, g: 0.08655512, b: 1.5029165, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6612717743387905975
