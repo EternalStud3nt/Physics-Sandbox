@@ -777,6 +777,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Essentials
       objectReference: {fileID: 0}
+    - target: {fileID: 6364360133283751561, guid: 80f9cbccc900e01498996aab894604ce,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6830754902145707747, guid: 80f9cbccc900e01498996aab894604ce,
         type: 3}
       propertyPath: m_RootOrder
@@ -985,22 +990,22 @@ PrefabInstance:
     - target: {fileID: 9028440047764024245, guid: 80f9cbccc900e01498996aab894604ce,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9028440049566220538, guid: 80f9cbccc900e01498996aab894604ce,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9028440049566220538, guid: 80f9cbccc900e01498996aab894604ce,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9028440049566220538, guid: 80f9cbccc900e01498996aab894604ce,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.000000059604645
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80f9cbccc900e01498996aab894604ce, type: 3}
