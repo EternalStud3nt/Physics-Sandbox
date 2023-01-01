@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PermaMagnet : Selectable_Ferromagnetic
+public class PermaMagnet : Selectable
 {
+    [field: SerializeField] public string ObjectName { get; private set; }
+    [field: SerializeField, TextArea] public string ObjectDescrition { get; private set; }
+
+    [SerializeField] private string objectDescription;
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private float _poleStrength;
     [SerializeField] private FieldVisualizer fieldVisualizer;
@@ -53,9 +57,12 @@ public class PermaMagnet : Selectable_Ferromagnetic
         } 
     }
 
-    public override float MagneticFieldAtOneMeter { get => PoleStrength / 15f; set => PoleStrength = value * 15; }
+    public float MagneticFieldAtOneMeter { get => PoleStrength / 15f; set => PoleStrength = value * 15; }
 
-    public override void ToggleFieldVisualization()
+    public override MaterialType Type => MaterialType.Ferromagnetic;
+
+
+    public void ToggleFieldVisualization()
     {
         if (!fieldVisualizer.Enabled)
         {
@@ -78,13 +85,14 @@ public class PermaMagnet : Selectable_Ferromagnetic
         rigidBody.isKinematic = true;
     }
 
+    public void UpdateFieldVisualization()
+    {
+        fieldVisualizer.UpdateFieldLines(SouthPole);
+    }
+
     private void Awake()
     {
         PoleStrength = _poleStrength;
     }
 
-    public override void UpdateFieldVisualization()
-    {
-        fieldVisualizer.UpdateFieldLines(SouthPole);
-    }
 }

@@ -360,6 +360,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe607e6e42fdfd4db3b2e8989ee3307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ObjectName>k__BackingField: Bar Magnet
+  <ObjectDescrition>k__BackingField: A ferromagnetic material, shaped like a bar
+  objectDescription: 
   rigidBody: {fileID: 8490582695372956027}
   _poleStrength: 15
   fieldVisualizer: {fileID: 5181934069538388302}

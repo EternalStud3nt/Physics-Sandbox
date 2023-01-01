@@ -20,6 +20,10 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
         SelectionManager.OnObjectClicked(gameObject);
     }
 
+    public abstract void OnSelection();
+
+    public abstract void OnDeselection();
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -28,7 +32,4 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    public abstract void OnSelection();
-
-    public abstract void OnDeselection(); 
 }

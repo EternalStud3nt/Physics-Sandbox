@@ -17,9 +17,8 @@ public class FieldVisualizer : MonoBehaviour
         List<Vector3> points = new List<Vector3>();
         Vector3 origin = startingPole.transform.position;
 
-        //for (float r = 0; r <= 0.3; r += 0.1f)
+        for (float r = 0; r <= 0.3; r += 0.1f)
         {
-            float r = 0.3f;
             for (float thita = 0; thita <= 360; thita += 36)
             {
                 const float y = 0.4f;
