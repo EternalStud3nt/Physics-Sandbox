@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class UI_PermamagnetMenu : MonoBehaviour
 {
+    [SerializeField] private TMP_Text massIndicator;
     [SerializeField] private TMP_Text objectName;
     [SerializeField] private TMP_Text objectDescription;
     [SerializeField] private TMP_Text _magneticFieldIndicator;
@@ -15,9 +16,23 @@ public class UI_PermamagnetMenu : MonoBehaviour
     public void Initialize(PermaMagnet permamagnet)
     {
         this.permamagnet = permamagnet;
+        _magneticFieldIndicator.text = Math.Round(permamagnet.MagneticFieldAtOneMeter, 2).ToString();
         _magneticFieldIndicator.text = this.permamagnet.MagneticFieldAtOneMeter.ToString();
         SetObjectName(permamagnet.ObjectName);
         SetObjectDescription(permamagnet.ObjectDescrition);
+        massIndicator.text = Math.Round(permamagnet.Mass, 2).ToString();
+    }
+
+    public void IncreaseMass()
+    {
+        permamagnet.ChangeMass(0.5f);
+        massIndicator.text = Math.Round(permamagnet.Mass, 2).ToString();
+    }
+
+    public void DecreaseMass()
+    {
+        permamagnet.ChangeMass(-0.5f);
+        massIndicator.text = Math.Round(permamagnet.Mass, 2).ToString();
     }
 
     public void IncreaseField()

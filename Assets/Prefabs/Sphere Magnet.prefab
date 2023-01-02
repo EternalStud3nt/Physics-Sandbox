@@ -116,6 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe607e6e42fdfd4db3b2e8989ee3307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ObjectName>k__BackingField: Sphere Magnet
+  <ObjectDescrition>k__BackingField: A magnet shaped like a sphere
+  objectDescription: 
   rigidBody: {fileID: 4234225031743184350}
   _poleStrength: 15
   fieldVisualizer: {fileID: 4728756460286962284}

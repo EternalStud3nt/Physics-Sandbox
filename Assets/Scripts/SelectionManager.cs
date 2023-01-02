@@ -60,6 +60,7 @@ public static class SelectionManager
 
     public static void ClearSelection()
     {
+        //if(SelectedSelectable.Collider.)
         SelectedSelectable.OnDeselection();
         SelectedTransform = null;
         ReferenceManager.UI_Overlay.CloseSelectionInfoCard();

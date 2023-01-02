@@ -9,13 +9,25 @@ public class PermaMagnet : Selectable
     [field: SerializeField] public string ObjectName { get; private set; }
     [field: SerializeField, TextArea] public string ObjectDescrition { get; private set; }
 
+
     [SerializeField] private string objectDescription;
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private float _poleStrength;
     [SerializeField] private FieldVisualizer fieldVisualizer;
 
-
     private MagneticPole[] _poles;
+
+    public float Mass
+    {
+        get
+        {
+            return rigidBody.mass;
+        }
+        private set
+        {
+            rigidBody.mass = value;
+        }
+    }
 
     public MagneticPole[] Poles
     {
@@ -62,6 +74,11 @@ public class PermaMagnet : Selectable
     public override MaterialType Type => MaterialType.Ferromagnetic;
 
 
+    public void ChangeMass(float value)
+    {
+        Mass += value;
+    }
+
     public void ToggleFieldVisualization()
     {
         if (!fieldVisualizer.Enabled)
@@ -75,6 +92,11 @@ public class PermaMagnet : Selectable
         }
     }
 
+    public void UpdateFieldVisualization()
+    {
+        fieldVisualizer.UpdateFieldLines(SouthPole);
+    }
+
     public override void OnDeselection()
     {
         rigidBody.isKinematic = false;
@@ -83,11 +105,6 @@ public class PermaMagnet : Selectable
     public override void OnSelection()
     {
         rigidBody.isKinematic = true;
-    }
-
-    public void UpdateFieldVisualization()
-    {
-        fieldVisualizer.UpdateFieldLines(SouthPole);
     }
 
     private void Awake()

@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public abstract class Selectable : MonoBehaviour, IPointerDownHandler
 {
+    [field: SerializeField] public Collider Collider { get; set; }
+
     public abstract MaterialType Type { get; }
 
     public enum MaterialType { Neutral, Ferromagnetic, Paramagnetic }
@@ -26,7 +28,7 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
         {
             SelectionManager.ClearSelection();
         }
