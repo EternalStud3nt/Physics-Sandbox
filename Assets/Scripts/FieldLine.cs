@@ -9,11 +9,11 @@ public class FieldLine : MonoBehaviour
 
     private Vector3 offset;
 
-    public void Initialize(MagneticPole startingPole)
+    public void Initialize(MagneticPole startingPole, int lineLength = 150)
     {
         lineRenderer.positionCount = 1;
         lineRenderer.SetPosition(0, startingPole.transform.position);
-        for (int i = 1; i < 150; i++)
+        for (int i = 1; i < lineLength; i++)
         {
             lineRenderer.positionCount++;
             lineRenderer.SetPosition(i, transform.position + offset);

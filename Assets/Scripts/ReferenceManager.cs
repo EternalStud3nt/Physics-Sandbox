@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class ReferenceManager : MonoBehaviour
 {
+    [field: SerializeField] public Material GreenHologramMaterial;
+    [field: SerializeField] public Material RedHologramMaterial;
+
+
     [SerializeField] private RuntimeTransformHandle transformHandle;
     [SerializeField] private UI_Overlay _uiOverlay;
 

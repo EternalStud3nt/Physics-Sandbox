@@ -12,7 +12,7 @@ public class FieldVisualizer : MonoBehaviour
 
     public bool Enabled { get; private set; }
 
-    public void VisualizeFieldLines(MagneticPole startingPole)
+    public void VisualizeFieldLines(MagneticPole startingPole, int lineLength = 150)
     {
         List<Vector3> points = new List<Vector3>();
         Vector3 origin = startingPole.transform.position;
@@ -29,16 +29,16 @@ public class FieldVisualizer : MonoBehaviour
                 points.Add(detectionPoint);
                 FieldLine fieldLine = Instantiate(fieldLinePrefab, transform);
                 fieldLine.transform.position = detectionPoint;
-                fieldLine.Initialize(startingPole);
+                fieldLine.Initialize(startingPole, lineLength);
             }
         }
         Enabled = true;
     }
 
-    public void UpdateFieldLines(MagneticPole startingPole)
+    public void UpdateFieldLines(MagneticPole startingPole, int lineLength = 150)
     {
         Reset();
-        VisualizeFieldLines(startingPole);
+        VisualizeFieldLines(startingPole, lineLength);
     }
 
     private void Start()

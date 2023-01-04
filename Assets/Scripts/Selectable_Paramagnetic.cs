@@ -9,11 +9,13 @@ public class Selectable_Paramagnetic : Selectable
 
     public override void OnDeselection()
     {
+        base.OnDeselection();
         _rigidbody.isKinematic = false;
     }
 
     public override void OnSelection()
     {
+        base.OnSelection();
         _rigidbody.isKinematic = true;
     }
 }

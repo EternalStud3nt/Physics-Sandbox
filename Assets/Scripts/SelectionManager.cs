@@ -60,7 +60,7 @@ public static class SelectionManager
 
     public static void ClearSelection()
     {
-        //if(SelectedSelectable.Collider.)
+        if (!SelectedSelectable.CanBePlaced) return;
         SelectedSelectable.OnDeselection();
         SelectedTransform = null;
         ReferenceManager.UI_Overlay.CloseSelectionInfoCard();
@@ -71,10 +71,10 @@ public static class SelectionManager
 
     public static void OnObjectClicked(Selectable selectable)
     {
-        Debug.Log(selectable.name + " has been clicked on");
         if (SelectedSelectable != null)
         {
             ClearSelection();
+            if (!SelectedSelectable.CanBePlaced) return;
         }
         SelectedTransform = selectable.transform;
         SelectedSelectable = selectable;

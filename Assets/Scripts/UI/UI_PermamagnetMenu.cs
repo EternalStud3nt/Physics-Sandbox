@@ -70,4 +70,5 @@ public class UI_PermamagnetMenu : MonoBehaviour
     {
         objectDescription.text = desc;
     }
+
 }

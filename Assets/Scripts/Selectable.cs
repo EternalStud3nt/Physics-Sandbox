@@ -5,7 +5,11 @@ using UnityEngine.EventSystems;
 
 public abstract class Selectable : MonoBehaviour, IPointerDownHandler
 {
-    [field: SerializeField] public Collider Collider { get; set; }
+    protected bool selected;
+    protected Dictionary<MeshRenderer, Material> meshRendererToMaterial = new Dictionary<MeshRenderer, Material>();
+
+
+    public bool CanBePlaced { get; private set; }
 
     public abstract MaterialType Type { get; }
 
@@ -17,21 +21,77 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
         OnClick(gameObject.GetComponent<Selectable>());
     }
 
+    public void VisualizePlacementAvaiability()
+    {
+        if (CanBePlaced)
+        {
+            foreach (MeshRenderer meshRenderer in meshRendererToMaterial.Keys)//
+            {
+                meshRenderer.material = ReferenceManager.Instance.GreenHologramMaterial;
+            }
+        }
+        else
+        {
+            foreach (MeshRenderer meshRenderer in meshRendererToMaterial.Keys)
+            {
+                meshRenderer.material = ReferenceManager.Instance.RedHologramMaterial;
+            }
+        }
+    }
+
     public virtual void OnClick(Selectable gameObject)
     {
         SelectionManager.OnObjectClicked(gameObject);
     }
 
-    public abstract void OnSelection();
+    public virtual void OnSelection()
+    {
+        selected = true;
+        CanBePlaced = true;
+        foreach (MeshRenderer meshRenderer in meshRendererToMaterial.Keys)
+        {
+            meshRenderer.material = ReferenceManager.Instance.GreenHologramMaterial;
+        }
+    }
 
-    public abstract void OnDeselection();
+    public virtual void OnDeselection()
+    {
+        selected = false;
+        foreach (MeshRenderer meshRenderer in meshRendererToMaterial.Keys)
+        {
+            meshRenderer.material = meshRendererToMaterial[meshRenderer];
+        }
+    }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
         {
             SelectionManager.ClearSelection();
         }
+    }
+
+    protected virtual void Awake()
+    {
+        foreach (MeshRenderer meshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
+        {
+            meshRendererToMaterial.Add(meshRenderer, meshRenderer.material);
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!selected) return;
+        CanBePlaced = false;
+        VisualizePlacementAvaiability();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!selected) return;
+        CanBePlaced = true;
+        VisualizePlacementAvaiability();
     }
 
 }
