@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UI_SelectionInfoCard : MonoBehaviour
 {
-    [SerializeField] private Transform contentSlot;
     [SerializeField] private UI_PermamagnetMenu _ferromagneticMenuUI;
     [SerializeField] private UI_ParamagneticMenu _paramagneticMenuUI;
     [SerializeField] private UI_NeutralMenu _neutralMenuUI;

@@ -155,7 +155,6 @@ public class FreeFlyCamera : MonoBehaviour
         SetCursorState();
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("hhhhhhhhhhh");
             EnterFlyMode();
         }
         else if(Input.GetMouseButtonUp(1))

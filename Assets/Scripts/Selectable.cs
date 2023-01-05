@@ -41,7 +41,8 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
 
     public virtual void OnClick(Selectable gameObject)
     {
-        SelectionManager.OnObjectClicked(gameObject);
+        if (SelectionManager.SelectedSelectable != this)
+                SelectionManager.OnObjectClicked(gameObject);
     }
 
     public virtual void OnSelection()
@@ -52,6 +53,7 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
         {
             meshRenderer.material = ReferenceManager.Instance.GreenHologramMaterial;
         }
+        ReferenceManager.Instance.UI_Overlay.OpenSelectionInfoCard();
     }
 
     public virtual void OnDeselection()
@@ -61,6 +63,7 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
         {
             meshRenderer.material = meshRendererToMaterial[meshRenderer];
         }
+        ReferenceManager.Instance.UI_Overlay.CloseSelectionInfoCard();
     }
 
     protected virtual void Update()

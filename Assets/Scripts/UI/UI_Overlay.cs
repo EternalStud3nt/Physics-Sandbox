@@ -56,18 +56,6 @@ public class UI_Overlay : MonoBehaviour
         _selectionInfoCard.Close();
     }
 
-    public void EnableInfoButton(bool enable)
-    {
-        if (enable)
-        {
-            _infoButton.gameObject.SetActive(true);
-        }
-        else
-        {
-            _infoButton.gameObject.SetActive(false);
-        }
-    }
-
     private void Start()
     {
         _referenceManager = ReferenceManager.Instance;

@@ -92,7 +92,7 @@ public class PermaMagnet : Selectable
             fieldVisualizer.Reset();
         }
     }
-
+    
     public void UpdateFieldVisualization()
     {
         fieldVisualizer.UpdateFieldLines(SouthPole, fieldLineLength);

@@ -60,11 +60,19 @@ public static class SelectionManager
 
     public static void ClearSelection()
     {
-        if (!SelectedSelectable.CanBePlaced) return;
-        SelectedSelectable.OnDeselection();
+        if (SelectedSelectable != null)
+        {
+            if (!SelectedSelectable.CanBePlaced)
+            {
+                return;
+            }
+            SelectedSelectable.OnDeselection();
+
+        }
+
         SelectedTransform = null;
+        SelectedSelectable = null;
         ReferenceManager.UI_Overlay.CloseSelectionInfoCard();
-        ReferenceManager.UI_Overlay.EnableInfoButton(false);
         TransformHandle.target = MainCamera.transform;
         ReferenceManager.UI_Overlay.EnableDeleteButton(false);
     }
@@ -80,7 +88,6 @@ public static class SelectionManager
         SelectedSelectable = selectable;
         SelectedSelectable.OnSelection();
         EnableMoveHandles();
-        ShowInfoButton();
         ReferenceManager.UI_Overlay.EnableDeleteButton(true);
     }
 
@@ -88,11 +95,6 @@ public static class SelectionManager
     {
         TransformHandle.gameObject.SetActive(true);
         TransformHandle.target = SelectedTransform;
-    }
-
-    private static void ShowInfoButton()
-    {
-        ReferenceManager.UI_Overlay.EnableInfoButton(true);
     }
 
 
