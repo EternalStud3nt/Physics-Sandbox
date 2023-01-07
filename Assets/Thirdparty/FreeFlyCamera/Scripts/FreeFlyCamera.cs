@@ -135,7 +135,7 @@ public class FreeFlyCamera : MonoBehaviour
 
     private void CalculateCurrentIncrease(bool moving)
     {
-        _currentIncrease = Time.deltaTime;
+        _currentIncrease = Time.unscaledDeltaTime;
 
         if (!_enableSpeedAcceleration || _enableSpeedAcceleration && !moving)
         {
@@ -143,8 +143,8 @@ public class FreeFlyCamera : MonoBehaviour
             return;
         }
 
-        _currentIncreaseMem += Time.deltaTime * (_speedAccelerationFactor - 1);
-        _currentIncrease = Time.deltaTime + Mathf.Pow(_currentIncreaseMem, 3) * Time.deltaTime;
+        _currentIncreaseMem += Time.unscaledDeltaTime * (_speedAccelerationFactor - 1);
+        _currentIncrease = Time.unscaledDeltaTime + Mathf.Pow(_currentIncreaseMem, 3) * Time.unscaledDeltaTime;
     }
 
     private void Update()
@@ -168,7 +168,7 @@ public class FreeFlyCamera : MonoBehaviour
         // Translation
         if (_enableTranslation)
         {
-            transform.Translate(Vector3.forward * Input.mouseScrollDelta.y * Time.deltaTime * _translationSpeed);
+            transform.Translate(Vector3.forward * Input.mouseScrollDelta.y * Time.unscaledDeltaTime * _translationSpeed);
         }
 
         // Movement

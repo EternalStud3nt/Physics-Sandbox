@@ -15,13 +15,11 @@ public class UI_CreationBar : MonoBehaviour
 
     public void CreateObject(GameObject prefab)
     {
-        Debug.Log("1");
         if (SelectionManager.SelectedSelectable != null)
         {
             return;
         }
-        Debug.Log("2");
-        GameObject newObj = Instantiate(prefab, SelectionManager.MainCamera.transform.position + SelectionManager.MainCamera.transform.forward * 2f, prefab.transform.rotation);
+        GameObject newObj = Instantiate(prefab, SelectionManager.MainCamera.transform.position + SelectionManager.MainCamera.transform.forward * 5f, prefab.transform.rotation);
         Selectable newSelectable = newObj.GetComponent<Selectable>();
         newSelectable.OnClick(newSelectable);
     }

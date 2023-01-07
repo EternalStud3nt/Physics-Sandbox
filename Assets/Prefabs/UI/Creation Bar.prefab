@@ -486,7 +486,7 @@ MonoBehaviour:
   downArrow: {fileID: 21300000, guid: f7cd2cb35fbdc0541aa51b6dc74b96db, type: 3}
   upArrow: {fileID: 21300000, guid: 586e04f2d49469144a5de5aaaabd7909, type: 3}
   collapseButtonImage: {fileID: 7100825594221277479}
-  viewport: {fileID: 751209044191893041}
+  scrollView: {fileID: 0}
 --- !u!114 &7920894134867991403
 MonoBehaviour:
   m_ObjectHideFlags: 0

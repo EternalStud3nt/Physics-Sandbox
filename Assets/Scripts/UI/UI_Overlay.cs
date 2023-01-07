@@ -14,6 +14,16 @@ public class UI_Overlay : MonoBehaviour
 
     private ReferenceManager _referenceManager;
 
+    public void DeleteAllFieldLines()
+    {
+
+    }
+
+    public void DeleteAllObjects()
+    {
+
+    }
+
     public void EnableDeleteButton(bool enable)
     {
         if (enable) _deleteButton.gameObject.SetActive(true);

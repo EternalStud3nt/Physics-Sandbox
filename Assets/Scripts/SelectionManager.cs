@@ -81,8 +81,7 @@ public static class SelectionManager
     {
         if (SelectedSelectable != null)
         {
-            ClearSelection();
-            if (!SelectedSelectable.CanBePlaced) return;
+            return;
         }
         SelectedTransform = selectable.transform;
         SelectedSelectable = selectable;
