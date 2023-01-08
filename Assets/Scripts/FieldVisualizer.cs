@@ -12,7 +12,7 @@ public class FieldVisualizer : MonoBehaviour
 
     public bool Enabled { get; private set; }
 
-    public void VisualizeFieldLines(MagneticPole startingPole, int lineLength = 150)
+    public void VisualizeFieldLines(PermaMagnet magnet, MagneticPole startingPole, int lineLength = 150)
     {
         List<Vector3> points = new List<Vector3>();
         Vector3 origin = startingPole.transform.position;
@@ -21,10 +21,10 @@ public class FieldVisualizer : MonoBehaviour
         {
             for (float thita = 0; thita <= 360; thita += 36)
             {
-                const float y = 0.4f;
+                const float depth = 0.4f;
                 float x = Mathf.Cos(thita * Mathf.Deg2Rad);
-                float z = Mathf.Sin(thita * Mathf.Deg2Rad);
-                Vector3 direction = r * (transform.right * x + transform.forward * z) + transform.up* y;
+                float y = Mathf.Sin(thita * Mathf.Deg2Rad);
+                Vector3 direction = r * (magnet.transform.right * x + magnet.transform.forward * y) + magnet.transform.up * depth;
                 Vector3 detectionPoint = origin + direction;
                 points.Add(detectionPoint);
                 FieldLine fieldLine = Instantiate(fieldLinePrefab, transform);
@@ -35,23 +35,33 @@ public class FieldVisualizer : MonoBehaviour
         Enabled = true;
     }
 
-    public void UpdateFieldLines(MagneticPole startingPole, int lineLength = 150)
+    public void UpdateFieldLines(PermaMagnet magnet, MagneticPole startingPole, int lineLength = 150)
     {
         Reset();
-        VisualizeFieldLines(startingPole, lineLength);
+        VisualizeFieldLines(magnet, startingPole, lineLength);
     }
 
-    private void Start()
-    {
-        VisualizeFieldLines(startingPole);
-    }
-
-    internal void Reset()
+    public void Reset()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
             Destroy(transform.GetChild(i).gameObject);
         }
         Enabled = false;
+    }
+
+    private void OnDeleteRequest()
+    {
+        Reset();
+    }
+
+    private void Start()
+    {
+        SettingsBar.OnDeleteFieldLinesRequest += OnDeleteRequest;
+    }
+
+    private void OnDestroy()
+    {
+        SettingsBar.OnDeleteFieldLinesRequest -= OnDeleteRequest;
     }
 }

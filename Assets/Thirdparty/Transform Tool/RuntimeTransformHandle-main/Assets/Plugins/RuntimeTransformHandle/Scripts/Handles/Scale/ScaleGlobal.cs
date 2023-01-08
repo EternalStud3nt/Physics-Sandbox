@@ -35,7 +35,7 @@ namespace RuntimeHandle
         public override void Interact(Vector3 p_previousPosition)
         {
             Vector3 mouseVector = (Input.mousePosition - p_previousPosition);
-            float d = (mouseVector.x + mouseVector.y) * Time.deltaTime * 2;
+            float d = (mouseVector.x + mouseVector.y) * Time.unscaledDeltaTime * 2;
             delta += d;
             _parentTransformHandle.target.localScale = _startScale + Vector3.Scale(_startScale,_axis) * delta;
             

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,6 +12,9 @@ public class SettingsBar : MonoBehaviour
     [SerializeField] private Sprite playButtonSprite;
     [SerializeField] private Sprite stopSimulationSprite;
     [SerializeField] private TMP_Text simulationButtonTextField;
+
+    public static event Action OnDeleteFieldLinesRequest;
+    public static event Action OnDeleteAllObjectsRequest;
 
     private void Start()
     {
@@ -49,5 +53,16 @@ public class SettingsBar : MonoBehaviour
             simulationTimeImage.sprite = stopSimulationSprite;
             simulationButtonTextField.text = "Stop\nSimulation";
         }
+    }
+
+
+    public void DeleteAllFieldLines()
+    {
+        OnDeleteFieldLinesRequest?.Invoke();
+    }
+
+    public void DeleteAllObjects()
+    {
+        OnDeleteAllObjectsRequest?.Invoke();
     }
 }

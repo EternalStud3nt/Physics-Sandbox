@@ -85,7 +85,7 @@ public class PermaMagnet : Selectable
         if (!fieldVisualizer.Enabled)
         {
             fieldVisualizer.Reset();
-            fieldVisualizer.VisualizeFieldLines(SouthPole, fieldLineLength);
+            fieldVisualizer.VisualizeFieldLines(this, SouthPole, fieldLineLength);
         }
         else
         {
@@ -95,7 +95,7 @@ public class PermaMagnet : Selectable
     
     public void UpdateFieldVisualization()
     {
-        fieldVisualizer.UpdateFieldLines(SouthPole, fieldLineLength);
+        fieldVisualizer.UpdateFieldLines(this, SouthPole, fieldLineLength);
     }
 
     public override void OnDeselection()

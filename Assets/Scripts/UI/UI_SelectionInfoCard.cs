@@ -10,6 +10,12 @@ public class UI_SelectionInfoCard : MonoBehaviour
 
     private Selectable _selectedObject;
 
+    public void DeleteObject()
+    {
+        SelectionManager.ClearSelectionForced();
+        Destroy(_selectedObject.gameObject);
+    }
+
     public void Open(Selectable selectable)
     { 
         _selectedObject = selectable;
@@ -32,4 +38,5 @@ public class UI_SelectionInfoCard : MonoBehaviour
                 break;
         }
     }
+
 }

@@ -80,7 +80,16 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
         {
             meshRendererToMaterial.Add(meshRenderer, meshRenderer.material);
         }
+        SettingsBar.OnDeleteAllObjectsRequest += DeleteObject;
+    }
 
+    private void DeleteObject()
+    {
+        if (SelectionManager.SelectedSelectable == this)
+        {
+            SelectionManager.ClearSelectionForced();
+        }
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -95,6 +104,11 @@ public abstract class Selectable : MonoBehaviour, IPointerDownHandler
         if (!selected) return;
         CanBePlaced = true;
         VisualizePlacementAvaiability();
+    }
+
+    private void OnDestroy()
+    {
+        SettingsBar.OnDeleteAllObjectsRequest -= DeleteObject;
     }
 
 }

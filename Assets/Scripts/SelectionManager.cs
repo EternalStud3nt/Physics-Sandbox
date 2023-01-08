@@ -74,7 +74,14 @@ public static class SelectionManager
         SelectedSelectable = null;
         ReferenceManager.UI_Overlay.CloseSelectionInfoCard();
         TransformHandle.target = MainCamera.transform;
-        ReferenceManager.UI_Overlay.EnableDeleteButton(false);
+    }
+
+    public static void ClearSelectionForced()
+    {
+        SelectedTransform = null;
+        SelectedSelectable = null;
+        ReferenceManager.UI_Overlay.CloseSelectionInfoCard();
+        TransformHandle.target = MainCamera.transform;
     }
 
     public static void OnObjectClicked(Selectable selectable)
