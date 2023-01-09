@@ -14,6 +14,10 @@ public class MagneticPole : MonoBehaviour
 
     public virtual void ApplyForce(Vector3 force)
     {
+        if (force.magnitude > 1000)
+        {
+            force = force.normalized * 1000;
+        }
         rigidBody.AddForceAtPosition(force, transform.position, ForceMode.Force);
     }
 

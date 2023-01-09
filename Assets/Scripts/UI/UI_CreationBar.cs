@@ -19,7 +19,7 @@ public class UI_CreationBar : MonoBehaviour
         {
             return;
         }
-        GameObject newObj = Instantiate(prefab, SelectionManager.MainCamera.transform.position + SelectionManager.MainCamera.transform.forward * 5f, prefab.transform.rotation);
+        GameObject newObj = Instantiate(prefab, SelectionManager.MainCamera.transform.position + SelectionManager.MainCamera.transform.forward * 2.5f, prefab.transform.rotation);
         Selectable newSelectable = newObj.GetComponent<Selectable>();
         newSelectable.OnClick(newSelectable);
     }
