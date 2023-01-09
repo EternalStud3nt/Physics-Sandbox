@@ -94,7 +94,6 @@ public static class SelectionManager
         SelectedSelectable = selectable;
         SelectedSelectable.OnSelection();
         EnableMoveHandles();
-        ReferenceManager.UI_Overlay.EnableDeleteButton(true);
     }
 
     public static void EnableMoveHandles()

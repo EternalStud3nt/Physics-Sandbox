@@ -34,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 2425188020124686858}
   - {fileID: 2425188019739417931}
+  - {fileID: 3230049768003825454}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -47,7 +48,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 5
   m_Drag: 5
-  m_AngularDrag: 0
+  m_AngularDrag: 2
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -66,11 +67,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ObjectName>k__BackingField: Box Magnet
-  <ObjectDescrition>k__BackingField: A magnet shaped like a box
+  <ObjectDescrition>k__BackingField: A ferromagnetic material, shaped like a box.
   fieldLineLength: 200
   rigidBody: {fileID: 2425188019681036070}
   _poleStrength: 15
-  fieldVisualizer: {fileID: 0}
+  fieldVisualizer: {fileID: 3230049768003825449}
 --- !u!65 &2628154348222530426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -299,3 +300,90 @@ MonoBehaviour:
   - {fileID: 2425188019739417930}
   <Strength>k__BackingField: -20
   <Type>k__BackingField: 0
+--- !u!1001 &888501103285813887
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2425188019681036069}
+    m_Modifications:
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344095213214477650, guid: f1675843b9e78e842a141de9d7b643b8,
+        type: 3}
+      propertyPath: m_Name
+      value: Field Visualizer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1675843b9e78e842a141de9d7b643b8, type: 3}
+--- !u!114 &3230049768003825449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2344095213214477654, guid: f1675843b9e78e842a141de9d7b643b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 888501103285813887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd3d7c026e052d439727f2f83fb496f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &3230049768003825454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2344095213214477649, guid: f1675843b9e78e842a141de9d7b643b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 888501103285813887}
+  m_PrefabAsset: {fileID: 0}

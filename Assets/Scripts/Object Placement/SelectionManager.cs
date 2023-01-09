@@ -28,7 +28,6 @@ namespace ObjectManipulation
             }
         }
 
-
         public static void OnObjectClicked(GameObject gameObject)
         {
             Debug.Log(gameObject.name + " has been clicked on");

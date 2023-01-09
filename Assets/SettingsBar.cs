@@ -14,7 +14,10 @@ public class SettingsBar : MonoBehaviour
     [SerializeField] private TMP_Text simulationButtonTextField;
 
     public static event Action OnDeleteFieldLinesRequest;
+    public static event Action OnEnableAllFieldLinesRequest;
     public static event Action OnDeleteAllObjectsRequest;
+
+    private bool timeStoped;
 
     private void Start()
     {
@@ -45,6 +48,7 @@ public class SettingsBar : MonoBehaviour
             Time.timeScale = 0;
             simulationTimeImage.sprite = playButtonSprite;
             simulationButtonTextField.text = "Start\nSimulation";
+            timeStoped = true;
 
         }
         else if (Time.timeScale == 0)
@@ -52,13 +56,18 @@ public class SettingsBar : MonoBehaviour
             Time.timeScale = 1;
             simulationTimeImage.sprite = stopSimulationSprite;
             simulationButtonTextField.text = "Stop\nSimulation";
+            timeStoped = false;
         }
     }
-
 
     public void DeleteAllFieldLines()
     {
         OnDeleteFieldLinesRequest?.Invoke();
+    }
+
+    public void EnableAllFieldLines()
+    {
+        OnEnableAllFieldLinesRequest?.Invoke();
     }
 
     public void DeleteAllObjects()

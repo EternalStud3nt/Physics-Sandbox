@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_NeutralMenu : MonoBehaviour
+public class UI_NeutralMenu : UI_SelectableMenu
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public void EnableObjectScaling()
     {
-        
+        ReferenceManager.Instance.TransformHandle.type = RuntimeHandle.HandleType.SCALE;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

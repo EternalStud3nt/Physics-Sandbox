@@ -119,7 +119,6 @@ namespace RuntimeHandle
             _previousMousePosition = Input.mousePosition;
 
             transform.position = target.transform.position;
-            Debug.Log("1");
             if (space == HandleSpace.LOCAL || type == HandleType.SCALE)
             {
                 transform.rotation = target.transform.rotation;

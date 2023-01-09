@@ -4,22 +4,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UI_PermamagnetMenu : MonoBehaviour
+public class UI_PermamagnetMenu : UI_SelectableMenu
 {
     [SerializeField] private TMP_Text massIndicator;
-    [SerializeField] private TMP_Text objectName;
-    [SerializeField] private TMP_Text objectDescription;
+    
     [SerializeField] private TMP_Text _magneticFieldIndicator;
 
     private PermaMagnet permamagnet;
 
     public void Initialize(PermaMagnet permamagnet)
     {
+        base.Initialize(permamagnet);
         this.permamagnet = permamagnet;
         _magneticFieldIndicator.text = Math.Round(permamagnet.MagneticFieldAtOneMeter, 2).ToString();
         _magneticFieldIndicator.text = this.permamagnet.MagneticFieldAtOneMeter.ToString();
-        SetObjectName(permamagnet.ObjectName);
-        SetObjectDescription(permamagnet.ObjectDescrition);
         massIndicator.text = Math.Round(permamagnet.Mass, 2).ToString();
     }
 
@@ -60,15 +58,4 @@ public class UI_PermamagnetMenu : MonoBehaviour
     {
         permamagnet.UpdateFieldVisualization();
     }
-
-    public void SetObjectName(string name)
-    {
-        objectName.text = name;
-    }
-
-    public void SetObjectDescription(string desc)
-    {
-        objectDescription.text = desc;
-    }
-
 }

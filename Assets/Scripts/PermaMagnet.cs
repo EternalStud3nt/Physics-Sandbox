@@ -6,10 +6,6 @@ using UnityEngine.EventSystems;
 
 public class PermaMagnet : Selectable
 {
-    [field: SerializeField] public string ObjectName { get; private set; }
-    [field: SerializeField, TextArea] public string ObjectDescrition { get; private set; }
-
-
     [SerializeField] private int fieldLineLength = 200;
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private float _poleStrength;
@@ -85,7 +81,7 @@ public class PermaMagnet : Selectable
         if (!fieldVisualizer.Enabled)
         {
             fieldVisualizer.Reset();
-            fieldVisualizer.VisualizeFieldLines(this, SouthPole, fieldLineLength);
+            fieldVisualizer.VisualizeFieldLines();
         }
         else
         {
@@ -95,7 +91,7 @@ public class PermaMagnet : Selectable
     
     public void UpdateFieldVisualization()
     {
-        fieldVisualizer.UpdateFieldLines(this, SouthPole, fieldLineLength);
+        fieldVisualizer.UpdateFieldLines();
     }
 
     public override void OnDeselection()

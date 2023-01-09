@@ -17,4 +17,5 @@ namespace ObjectManipulation
             SelectionManager.OnObjectClicked(gameObject);
         }
     }
+
 }

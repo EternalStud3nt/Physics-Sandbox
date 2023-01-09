@@ -8,11 +8,14 @@ public class FieldVisualizer : MonoBehaviour
 {
     [SerializeField] FieldLine fieldLinePrefab;
     [SerializeField] MeshFilter meshFilter;
-    [SerializeField] MagneticPole startingPole;
+
+    private PermaMagnet magnet;
+    private MagneticPole startingPole;
+
 
     public bool Enabled { get; private set; }
 
-    public void VisualizeFieldLines(PermaMagnet magnet, MagneticPole startingPole, int lineLength = 150)
+    public void VisualizeFieldLines()
     {
         List<Vector3> points = new List<Vector3>();
         Vector3 origin = startingPole.transform.position;
@@ -29,16 +32,16 @@ public class FieldVisualizer : MonoBehaviour
                 points.Add(detectionPoint);
                 FieldLine fieldLine = Instantiate(fieldLinePrefab, transform);
                 fieldLine.transform.position = detectionPoint;
-                fieldLine.Initialize(startingPole, lineLength);
+                fieldLine.Initialize(startingPole);
             }
         }
         Enabled = true;
     }
 
-    public void UpdateFieldLines(PermaMagnet magnet, MagneticPole startingPole, int lineLength = 150)
+    public void UpdateFieldLines()
     {
         Reset();
-        VisualizeFieldLines(magnet, startingPole, lineLength);
+        VisualizeFieldLines();
     }
 
     public void Reset()
@@ -55,13 +58,30 @@ public class FieldVisualizer : MonoBehaviour
         Reset();
     }
 
+    private void OnEnableRequest()
+    {
+        UpdateFieldLines();
+    }
+
     private void Start()
     {
+        magnet = GetComponentInParent<PermaMagnet>();
+        Transform parent = transform.parent;
+        MagneticPole[] poles = parent.GetComponentsInChildren<MagneticPole>();
+        foreach (var pole in poles)
+        {
+            if (pole.Type == MagneticPole.PoleType.South)
+            {
+                startingPole = pole;
+            }
+        }
         SettingsBar.OnDeleteFieldLinesRequest += OnDeleteRequest;
+        SettingsBar.OnEnableAllFieldLinesRequest += OnEnableRequest;
     }
 
     private void OnDestroy()
     {
+        SettingsBar.OnEnableAllFieldLinesRequest -= OnEnableRequest;
         SettingsBar.OnDeleteFieldLinesRequest -= OnDeleteRequest;
     }
 }

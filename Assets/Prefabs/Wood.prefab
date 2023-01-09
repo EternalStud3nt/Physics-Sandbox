@@ -111,6 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cb4f69796e53b43a4f58f9a81c4815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ObjectName>k__BackingField: Wood
+  <ObjectDescrition>k__BackingField: A wooden box. It doesn't interfere with magnetic
+    materials.
 --- !u!54 &2041256889136812809
 Rigidbody:
   m_ObjectHideFlags: 0

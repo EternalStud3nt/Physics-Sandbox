@@ -7,6 +7,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 860491160026920692, guid: 43ffe73f7935f9841b5028482b1d3c28,
+        type: 3}
+      propertyPath: <ObjectName>k__BackingField
+      value: Gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 860491160026920692, guid: 43ffe73f7935f9841b5028482b1d3c28,
+        type: 3}
+      propertyPath: <ObjectDescrition>k__BackingField
+      value: 'Gold is NOT attracted to a magnet. One way of telling if your jewelry
+        is actually gold is by using a magnet. If your gold is magnetic, then there
+        is iron or nickel inside of it.
+
+
+
+        Pure gold is not attracted to
+        magnetic fields, but if an enormous magnetic field is applied to gold, the
+        gold will slightly move and then slightly repel it. However, this is only
+        so slightly and so no, it cannot be found with magnets.'
+      objectReference: {fileID: 0}
     - target: {fileID: 860491160026920694, guid: 43ffe73f7935f9841b5028482b1d3c28,
         type: 3}
       propertyPath: m_Name
@@ -72,10 +91,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c1f7b9d229e8a7846baa109413cb9487, type: 2}
+    - target: {fileID: 919525025042157318, guid: 43ffe73f7935f9841b5028482b1d3c28,
+        type: 3}
+      propertyPath: <Strength>k__BackingField
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2151729355627779190, guid: 43ffe73f7935f9841b5028482b1d3c28,
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843780712915716765, guid: 43ffe73f7935f9841b5028482b1d3c28,
+        type: 3}
+      propertyPath: <Strength>k__BackingField
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7552457668674695178, guid: 43ffe73f7935f9841b5028482b1d3c28,
         type: 3}

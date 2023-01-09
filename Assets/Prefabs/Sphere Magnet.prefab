@@ -61,8 +61,8 @@ GameObject:
   - component: {fileID: 4234225031743184349}
   - component: {fileID: 4234225031743184350}
   - component: {fileID: 6467378257873945672}
-  - component: {fileID: 4547534912012573058}
   - component: {fileID: 6467378257873945673}
+  - component: {fileID: 8318945489178611387}
   m_Layer: 0
   m_Name: Sphere Magnet
   m_TagString: Untagged
@@ -117,24 +117,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ObjectName>k__BackingField: Sphere Magnet
-  <ObjectDescrition>k__BackingField: A magnet shaped like a sphere
-  objectDescription: 
+  <ObjectDescrition>k__BackingField: A ferromagnetic material shaped like a sphere
+  fieldLineLength: 200
   rigidBody: {fileID: 4234225031743184350}
   _poleStrength: 15
   fieldVisualizer: {fileID: 4728756460286962284}
---- !u!65 &4547534912012573058
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4234225031743184351}
-  m_Material: {fileID: 13400000, guid: c668c35a5512c6246abf80bc910945da, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &6467378257873945673
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -147,6 +134,19 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &8318945489178611387
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234225031743184351}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5779238372755121120
 GameObject:

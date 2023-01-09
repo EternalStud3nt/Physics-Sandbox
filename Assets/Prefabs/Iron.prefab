@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 860491160026920692, guid: 43ffe73f7935f9841b5028482b1d3c28,
+        type: 3}
+      propertyPath: <ObjectName>k__BackingField
+      value: Iron
+      objectReference: {fileID: 0}
+    - target: {fileID: 860491160026920692, guid: 43ffe73f7935f9841b5028482b1d3c28,
+        type: 3}
+      propertyPath: <ObjectDescrition>k__BackingField
+      value: "Iron is magnetic in its \u03B1 form. The \u03B1 form occurs below a
+        special temperature called the Curie point, which is 770 \xB0C. Iron is paramagnetic
+        above this temperature and only weakly attracted to a magnetic field."
+      objectReference: {fileID: 0}
     - target: {fileID: 860491160026920694, guid: 43ffe73f7935f9841b5028482b1d3c28,
         type: 3}
       propertyPath: m_Name

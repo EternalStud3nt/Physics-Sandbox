@@ -5,6 +5,10 @@ using UnityEngine.EventSystems;
 
 public abstract class Selectable : MonoBehaviour, IPointerDownHandler
 {
+    [field: SerializeField] public string ObjectName { get; private set; }
+    [field: SerializeField, TextArea] public string ObjectDescrition { get; private set; }
+
+
     protected bool selected;
     protected Dictionary<MeshRenderer, Material> meshRendererToMaterial = new Dictionary<MeshRenderer, Material>();
 
